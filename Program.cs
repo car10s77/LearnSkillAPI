@@ -137,7 +137,9 @@ public class Program
 
         builder.Services.AddHealthChecks();
 
+
         var app = builder.Build();
+        app.Urls.Add("http://*:80");
 
         // Configure the HTTP request pipeline.
         //if (app.Environment.IsDevelopment())
