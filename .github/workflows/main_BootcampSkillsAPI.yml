@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_cc84e60a1c064fc9adf9d0decf77bbc6 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_210817899fc94f4cb2b33b92e530eace }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_d948d4869b8349f8b129847e46b595ae }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_8ef2d268f4824c9ba27106cfda1e8040 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_cc84e60a1c064fc9adf9d0decf77bbc6 }}/skills-api:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d948d4869b8349f8b129847e46b595ae }}/skills-api:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'BootcampSkillsAPI'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2d55252dd57b4150a3c23e9befdc5400 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_cc84e60a1c064fc9adf9d0decf77bbc6 }}/skills-api:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_77238cdd6f24401396dfda32fc6597ad }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d948d4869b8349f8b129847e46b595ae }}/skills-api:${{ github.sha }}'
