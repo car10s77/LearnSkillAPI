@@ -150,7 +150,7 @@ public class Program
         //app.
 
 
-        app.UseHttpsRedirection();
+        // app.UseHttpsRedirection();
 
         app.UseAuthentication();
 
