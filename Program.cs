@@ -66,7 +66,7 @@ public class Program
 
         #region Database context
         builder.Services.AddDbContext<Persistance.AppContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
         );
         #endregion
 
